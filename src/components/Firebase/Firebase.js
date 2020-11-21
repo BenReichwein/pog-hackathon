@@ -2,6 +2,7 @@ import firebase from 'firebase';
 import React, {useRef, useEffect, useState} from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import {ChatBot} from "../ChatBot/ChatBot";
+import {GamblingBot} from "../ChatBot/GamblingBot";
 
 // Config for firebase
 const config = {
@@ -95,6 +96,7 @@ export function Message(props) {
 
         // Chat Bot commands
         ChatBot(formValue, props.chat, firebase.auth().currentUser,)
+        GamblingBot(formValue, props.chat, firebase.auth().currentUser,)
     }
 
     return (<>
