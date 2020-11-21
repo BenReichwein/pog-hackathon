@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { db } from '../Firebase/Firebase';
 import firebase from "firebase";
+import './Login.css'
 
 class Login extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class Login extends Component {
         });
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
-                window.location.href='/profile';
+                window.location.href='/';
             } else {
                 console.log('user not signed in')
             }

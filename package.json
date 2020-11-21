@@ -38,6 +38,7 @@
   "devDependencies": {
     "firebase": "^8.1.1",
     "firebase-admin": "^9.4.1",
+    "react-firebase-hooks": "^2.2.0",
     "react-router-dom": "^5.2.0"
   }
 }

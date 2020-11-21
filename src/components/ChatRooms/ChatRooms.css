@@ -1,0 +1,223 @@
+.chat-box {
+    background-color: white;
+    text-align: center;
+    max-width: 728px;
+    margin: 0 auto;
+}
+
+.chat-box section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: white;
+}
+
+main {
+    padding: 5px;
+    height: 80vh;
+    margin: 5vh 0 10vh;
+    overflow-y: scroll;
+    direction: ltr;
+    display: flex;
+    flex-direction: column;
+}
+
+main::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+main::-webkit-scrollbar-track {
+    background: whitesmoke;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: lightgray;
+}
+
+.chat {
+    height: 8vh;
+    position: fixed;
+    bottom: 0;
+    background-color: whitesmoke;
+    width: 100%;
+    max-width: 728px;
+    border-radius: 7px;
+    display: flex;
+    font-size: 1.5rem;
+}
+
+.chat-send {
+    line-height: 1.5;
+    width: 100%;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, rgb(255, 171, 0) 0%, rgba(254, 140, 20 ,1) 100%);
+    color: white;
+    outline: none;
+    border-radius: 7px;
+    border: none;
+    padding: 0 10px;
+}
+
+.chat-send::placeholder {
+    color: whitesmoke;
+}
+
+.chat-button {
+    background-color: whitesmoke;
+    width: 20%;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.chat-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.chat-message {
+    max-width: 500px;
+    margin-bottom: 12px;
+    line-height: 24px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    color: white;
+    text-align: center;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+}
+
+.sent {
+    flex-direction: row-reverse;
+}
+
+.sent p {
+    color: white;
+    background: linear-gradient(90deg, rgb(255, 171, 0) 0%, rgba(254, 140, 20 ,1) 100%);
+    align-self: flex-end;
+    text-align: right;
+}
+.received p {
+    background: #e5e5ea;
+    color: black;
+    text-align: left;
+}
+
+.username-sent {
+    margin-right: 15px;
+    font-size: 16px;
+    color: #888888;
+    text-align: right;
+}
+
+.username-received {
+    margin-left: 15px;
+    font-size: 16px;
+    color: #888888;
+    text-align: left;
+}
+
+.username-chat-link {
+    color: #888888;
+    text-decoration: none;
+}
+
+.username-chat-link:hover {
+    color: #888888;
+    text-decoration: underline;
+}
+
+.chatroom-button {
+    background: linear-gradient(90deg, rgb(254, 120, 20) 0%, rgba(254, 102, 90 ,1) 100%);
+    color: whitesmoke;
+    text-align: left;
+    margin: 10px auto; /* 5% from the top, 15% from the bottom and centered */
+    width: 80%; /* Could be more or less, depending on screen size */
+    height: 100%;
+    border-radius: 8px;
+    border-color: transparent;
+    box-shadow: 0 4px 8px 0 rgba(0, 0,
+    0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation: bounceIn ease 1s;
+}
+
+.chatroom-button:hover {
+    padding: 8px 20px;
+    transition: all 0.3s ease-out;
+    background: linear-gradient(90deg, rgb(255, 171, 0) 0%, rgba(254, 120, 50 ,1) 100%);
+    color: white;
+    transition: 250ms;
+}
+
+.chat-category {
+    background: linear-gradient(90deg, rgb(255, 128, 0) 0%, rgba(255, 128, 0 ,1) 100%);
+    color: white;
+    padding: 16px;
+    width: 65%;
+    margin-top: 2px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-top-width: 1px;
+    border-color: rgb(255, 128, 0);
+    box-shadow: 0 4px 8px 0 rgba(0, 0,
+    0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.chat-delete {
+    color: #FF7F3D;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.chat-delete:hover {
+    transition: all 0.3s ease-out;
+    font-size: 25px;
+    transition: 250ms;
+}
+
+.chat-back {
+    font-size: 18px;
+    color: #FF7F3D;
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 115px;
+    left: 20px;
+}
+
+.chat-back:hover {
+    color: #FFAE7F;
+}
+
+@media screen and (max-width: 512px) {
+    .chat-category {
+        width: 50%;
+        margin-left: 1%;
+    }
+    .chat-box section{
+        width: 99%;
+    }
+    .chat-back {
+        margin-left: 1%;
+    }
+}
+
+/* Desktop top view */
+@media screen and (min-width: 1400px) {
+    .chatroom-button {
+        width: 850px;
+    }
+}
