@@ -122,10 +122,9 @@ export function Message(props) {
 function ChatMessage(props) {
     const { text, uid, from, photoURL } = props.message;
     const messageClass = uid === firebase.auth().currentUser.uid ? 'sent' : 'received';
-    const link = `/userprofile${uid}`
 
     return (<div style={{display: "block"}}>
-        <p className={`username-${messageClass}`}><a className='username-chat-link' href={link} >{from}</a></p>
+        <p className={`username-${messageClass}`}>{from}</p>
         <div className={`message ${messageClass}`}>
             <img alt='profile' className={'pfp'} src={photoURL || 'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png'} />
             <p className={'chat-message'}>{text}</p>

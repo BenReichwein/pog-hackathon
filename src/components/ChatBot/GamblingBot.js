@@ -7,7 +7,7 @@ export function GamblingBot(text, collection, uid) {
     // eslint-disable-next-line default-case
     switch (text) {
         case '!gamble':
-            say("Gambling Commands: !slot", messagesRef)
+            say("Gambling Commands: !bal, !cash", messagesRef)
             break;
 
         case '!bal' || '!balance':
@@ -18,11 +18,13 @@ export function GamblingBot(text, collection, uid) {
 
         case '!cash':
             let reward = Math.floor(Math.random() * 200) + 50;
-            users.update({
-                balance: reward
-            }).then(
-                say(`CASH Reward: $${reward}`, messagesRef)
-            )
+            users.get().then(doc => {
+                users.update({
+                    balance: doc.data().balance + reward
+                }).then(
+                    say(`CASH Reward: $${reward}`, messagesRef)
+                )
+            })
             break;
     }
 }

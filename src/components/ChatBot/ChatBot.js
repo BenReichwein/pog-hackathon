@@ -3,15 +3,6 @@ import firebase from "firebase";
 
 export function ChatBot(text, collection, uid) {
     const messagesRef = db.collection(collection);
-    const users = db.collection("users").doc(uid.uid)
-    users.get().then(doc => {
-        if (!doc.data().username) {
-            users.set({
-                username: uid.uid,
-                balance: 200,
-            }).then(r => console.log('Updated Database'))
-        }
-    })
     // eslint-disable-next-line default-case
     switch (text) {
         case '!help':
