@@ -128,16 +128,6 @@ main::-webkit-scrollbar-thumb {
     text-align: left;
 }
 
-.username-chat-link {
-    color: #888888;
-    text-decoration: none;
-}
-
-.username-chat-link:hover {
-    color: #888888;
-    text-decoration: underline;
-}
-
 .chatroom-button {
     background: linear-gradient(90deg, rgb(254, 120, 20) 0%, rgba(254, 102, 90 ,1) 100%);
     color: whitesmoke;
@@ -173,19 +163,6 @@ main::-webkit-scrollbar-thumb {
     border-color: rgb(255, 128, 0);
     box-shadow: 0 4px 8px 0 rgba(0, 0,
     0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.chat-delete {
-    color: #FF7F3D;
-    font-size: 20px;
-    background-color: transparent;
-    border: none;
-}
-
-.chat-delete:hover {
-    transition: all 0.3s ease-out;
-    font-size: 25px;
-    transition: 250ms;
 }
 
 .chat-back {

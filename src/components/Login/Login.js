@@ -16,7 +16,12 @@ class Login extends Component {
     // Google Authentication
     signInWithGoogle = () => {
         const provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(r => window.location.href='/');
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            db.collection("users").doc(result.user.uid).set({
+                username: result.user.displayName,
+                balance: 200
+            }).then(r => window.location.href='/')
+        });
     }
 
     // Registers the user
