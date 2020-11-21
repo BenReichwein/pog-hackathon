@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { db } from '../Firebase/Firebase';
-import * as firebase from "firebase-admin";
+import firebase from "firebase";
 
 class Login extends Component {
     constructor(props) {
