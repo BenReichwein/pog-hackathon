@@ -11,6 +11,7 @@ class ChatRooms extends Component {
     render() {
         return (
             <div>
+                <br />
                 <div className={"spotlight"}>
                     <h4 className={"spotlight-title"}>
                         CHAT ROOMS

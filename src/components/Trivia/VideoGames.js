@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class GeneralTrivia extends Component {
+export default class VideoGames extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ export default class GeneralTrivia extends Component {
       }
     
       componentWillMount() {
-        fetch("https://opentdb.com/api.php?amount=10&type=boolean&encode=url3986")
+        fetch("https://opentdb.com/api.php?amount=10&category=15&type=boolean&encode=url3986")
           .then(res => res.json())
           .then(
             (result) => {
