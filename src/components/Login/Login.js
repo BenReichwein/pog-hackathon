@@ -13,6 +13,11 @@ class Login extends Component {
             forgotpass: 'forgotpass',
         }
     }
+    // Google Authentication
+    signInWithGoogle = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(r => window.location.href='/');
+    }
 
     // Registers the user
     RegisterDB = (email, password) => {
@@ -21,9 +26,7 @@ class Login extends Component {
             .then(function(result) {
                 return db.collection("users").doc(result.user.uid).set({
                     username: email.split('@').shift(),
-                    bio: 'No bio',
-                    shared: 0,
-                    saved: 0,
+                    balance: 200,
                 }).then(next => {
                     result.user.updateProfile({
                         displayName: email.split('@').shift(),
@@ -105,6 +108,13 @@ class Login extends Component {
     render() {
         return (
             <div className="modal">
+                <div>
+                    <center><h1>POG-HACKATHON 2020</h1></center>
+                    <center><h2>Chat rooms by Ben and Ian</h2></center>
+                    <br/><br/>
+                    <button className={"Oauth-login"} onClick={this.signInWithGoogle}><i className="fab fa-google"/> - Login in with Google</button>
+                </div>
+                <br/><br/>
                 <form onSubmit={this.handleSubmit}>
                     <div className="container">
                         <label className={this.state.system}>Full Name</label>

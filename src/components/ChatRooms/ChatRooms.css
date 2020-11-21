@@ -194,12 +194,29 @@ main::-webkit-scrollbar-thumb {
     border: none;
     background: transparent;
     position: absolute;
-    top: 115px;
+    top: 35px;
     left: 20px;
+}
+
+.chat-signout {
+    font-size: 18px;
+    color: #FF7F3D;
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 35px;
+    right: 20px;
 }
 
 .chat-back:hover {
     color: #FFAE7F;
+}
+
+.pfp {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px 5px;
 }
 
 @media screen and (max-width: 512px) {

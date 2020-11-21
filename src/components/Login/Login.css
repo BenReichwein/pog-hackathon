@@ -123,6 +123,27 @@ span.register {
     background: #FF8F5D;
 }
 
+.hide {
+    display: none;
+}
+
+.Oauth-login {
+    background-color: #003049;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0,
+    0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Oauth-login:hover {
+    background-color: #003070;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 1060px) {
     span.register {

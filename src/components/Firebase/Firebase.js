@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import React, {Component, useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import {ChatBot} from "../ChatBot/ChatBot";
 
@@ -28,6 +28,15 @@ export function StatusIn() {
             alert("You are not logged in")
             window.location.href = '/login';
         }
+    });
+}
+
+// Sign out button
+export function SignOut() {
+    firebase.auth().signOut().then(function() {
+        window.location.href='/';
+    }).catch(function(error) {
+        alert(error)
     });
 }
 
@@ -60,7 +69,7 @@ export function Message(props) {
     const sendMessage = async (e) => {
         e.preventDefault();
 
-        const { uid } = firebase.auth().currentUser;
+        const { uid, photoURL } = firebase.auth().currentUser;
 
         // Black listed words filter
         let blacklisted = ['fuck', 'bitch', 'nigger', 'nigga', 'pussy', 'cunt', 'clit'];
@@ -76,6 +85,7 @@ export function Message(props) {
                 text: formValue,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 uid,
+                photoURL,
                 from: firebase.auth().currentUser.displayName,
             })
 
@@ -108,15 +118,14 @@ export function Message(props) {
 
 // Display Messages
 function ChatMessage(props) {
-    const { text, uid, from, id } = props.message;
-    const chatdelete = "1EVRpW32MscYqqFv99ALrZrHhw03" === firebase.auth().currentUser.uid ? 'chat-delete' : 'hide';
+    const { text, uid, from, photoURL } = props.message;
     const messageClass = uid === firebase.auth().currentUser.uid ? 'sent' : 'received';
     const link = `/userprofile${uid}`
 
     return (<div style={{display: "block"}}>
         <p className={`username-${messageClass}`}><a className='username-chat-link' href={link} >{from}</a></p>
-        <button className={chatdelete} onClick={() => DeleteDoc(`${props.collection}`, id)}><i className="fas fa-trash"/></button>
         <div className={`message ${messageClass}`}>
+            <img className={'pfp'} src={photoURL || 'https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png'} />
             <p className={'chat-message'}>{text}</p>
         </div>
     </div>)
