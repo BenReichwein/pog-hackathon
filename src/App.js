@@ -6,14 +6,12 @@ import './App.css';
 
 function App() {
   return (
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route path="/" exact component={ChatRooms} />
-            <Route path="/login" component={Login} />
-          </Switch>
-        </div>
-      </Router>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={ChatRooms}/>
+        <Route path="/login" component={Login}/>
+      </Switch>
+    </Router>
   );
 }
 
