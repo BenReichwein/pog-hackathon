@@ -1,5 +1,5 @@
 .trivia-button {
-    background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)
+    background-image: linear-gradient(to right, #360033 0%, #0b8793  51%, #360033  100%)
 }
 
 .trivia-button {
@@ -9,7 +9,7 @@
     margin: 10px auto; /* 5% from the top, 15% from the bottom and centered */
     width: 80%; /* Could be more or less, depending on screen size */
     height: 100%;
-    border-radius: 8px;
+    border-radius: 25px;
     border-color: transparent;
     transition: 0.5s;
     background-size: 200% auto;
