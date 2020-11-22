@@ -32,13 +32,8 @@
         width: 850px;
     }
 }
-
-body {
-    font-size: 80%;
-    padding: 20px;
-  }
   
-  .trivia-container {
+.trivia-container {
     position: relative;
     background: white;
     height: 50em;
@@ -50,9 +45,9 @@ body {
     bottom: 50%;
     -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 0px 0px 0px 10px #FF0000, 5px 5px 15px 5px rgba(0,0,0,0);
-  }
-  /* question*/
-  .trivia-container div {
+}
+/* question*/
+.trivia-container div {
     background: white;
     color: black;
     font-size: 35px;
@@ -67,10 +62,10 @@ body {
     top: 50%;
     left: 50%;
     overflow: auto;
-  }
+}
 
-  
-  @media screen and (max-width: 512px) {
+
+@media screen and (max-width: 512px) {
     .trivia-container {
         top: 10rem;
         height: 30rem;
