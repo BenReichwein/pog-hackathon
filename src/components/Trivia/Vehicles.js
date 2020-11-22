@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import {db} from "../Firebase/Firebase";
+import firebase from "firebase";
 export default class Vehicles extends Component {
     constructor(props) {
         super(props);
@@ -8,12 +9,13 @@ export default class Vehicles extends Component {
           isLoaded: false,
           items: [],
           questionIndex: 0,
-          correct: 0
+          correct: 0,
+          visible: false
         };
       }
     
       componentWillMount() {
-        fetch("https://opentdb.com/api.php?amount=10&category=28&type=boolean&encode=url3986")
+        fetch("https://opentdb.com/api.php?amount=10&category=28&type=boolean&encode=base64")
           .then(res => res.json())
           .then(
             (result) => {
@@ -45,8 +47,20 @@ export default class Vehicles extends Component {
         })
       }
 
+      claimCoins = () => {
+        const { uid } = firebase.auth().currentUser
+        const users = db.collection("users").doc(uid)
+        return users.get().then(doc => {
+          users.update({
+            balance: doc.data().balance + this.state.correct * 10
+          }).then(ianIsCool => {
+            this.setState({visible: true})
+          })
+        })
+      }
+
     render() {
-        const { error, isLoaded, items, questionIndex, correct } = this.state;
+        const { error, isLoaded, items, questionIndex, correct, visible } = this.state;
         if(error) {
             return <div>Error: {error}</div>
         } else if(!isLoaded) {
@@ -56,6 +70,7 @@ export default class Vehicles extends Component {
                 <div>
                     <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                     <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
+                    <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
                     <h1>You earned {correct * 10} coins</h1>
                 </div>
             )
@@ -64,9 +79,9 @@ export default class Vehicles extends Component {
                 <div>
                     <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                     <ul>
-                        <h3>{decodeURI(items[questionIndex].question)}</h3>
-                        <button onClick={this.correct}>{items[questionIndex].correct_answer}</button>
-                        <button onClick={this.counter}>{items[questionIndex].incorrect_answers}</button>
+                        <h3>{atob(items[questionIndex].question)}</h3>
+                        <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
+                        <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
                     </ul>
                 </div>
             ) 

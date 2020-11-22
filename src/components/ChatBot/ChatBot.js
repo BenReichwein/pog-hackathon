@@ -14,7 +14,7 @@ export function ChatBot(text, collection, uid) {
             break;
 
         case '!trivia':
-            say(`Head over to the ${<a href='/trivia'>trivia</a>} page to play some games and earn some coins`, messagesRef)
+            say(`Head over to trivia to play some games and earn some coins`, messagesRef)
             break;
     }
 }
