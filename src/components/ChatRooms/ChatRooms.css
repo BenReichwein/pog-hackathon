@@ -150,7 +150,7 @@ main::-webkit-scrollbar-thumb {
 .chatroom-button:hover {
     padding: 12px 30px;
     transition: all 0.3s ease-out;
-    color: white;
+    color: whitesmoke;
     transition: 250ms;
     background-position: right center; /* change the direction of the change here */
     text-decoration: none;
