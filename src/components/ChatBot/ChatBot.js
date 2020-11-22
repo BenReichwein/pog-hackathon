@@ -3,6 +3,7 @@ import firebase from "firebase";
 
 export function ChatBot(text, collection, uid) {
     const messagesRef = db.collection(collection);
+    text = text.toLowerCase()
     // eslint-disable-next-line default-case
     switch (text) {
         case '!help':

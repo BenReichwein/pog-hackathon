@@ -55,7 +55,7 @@ main::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, #517fa4 0%, #243949 51%, #517fa4 100%);
     color: white;
     outline: none;
-    border-radius: 7px;
+    border-radius: 5px;
     border: none;
     padding: 0 10px;
 }

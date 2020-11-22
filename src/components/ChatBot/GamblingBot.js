@@ -7,6 +7,7 @@ export function GamblingBot(text, collection, uid) {
     const messagesRef = db.collection(collection);
     const users = db.collection("users").doc(uid.uid)
     const jackpot = db.collection("gamble").doc('jackpot')
+    text = text.toLowerCase()
     // eslint-disable-next-line default-case
     switch (text) {
         case '!gamble':
@@ -84,7 +85,7 @@ export function GamblingBot(text, collection, uid) {
                     winner.update({
                         balance: firebase.firestore.FieldValue.increment(doc.data().value)
                     })
-                    if(!winner.length) {
+                    if(!random.length) {
                         say(`Currently no jackpot entries`, messagesRef)
                     } else {
                         say(`WINNER OF THE $${doc.data().value} JACKPOT IS!...`, messagesRef)
