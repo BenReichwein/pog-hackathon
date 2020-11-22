@@ -21,6 +21,7 @@ class ChatRooms extends Component {
                     <div className={"postdesc"}>
                         • A place to talk with your community to discuss trivia<br/>
                         • Play one another with coins earned through trivia games<br/>
+                        • Use !help to get started<br/>
                     </div>
                     <h4 className={"spotlight-title"}>
                         RULES:

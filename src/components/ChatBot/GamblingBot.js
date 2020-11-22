@@ -84,15 +84,19 @@ export function GamblingBot(text, collection, uid) {
                     winner.update({
                         balance: firebase.firestore.FieldValue.increment(doc.data().value)
                     })
-                    say(`WINNER OF THE $${doc.data().value} JACKPOT IS!...`, messagesRef)
-                    winner.get().then(doc => {
-                        say(`${doc.data().username}!!!!`, messagesRef)
-                    }).then(r => {
-                        jackpot.set({
-                            value: 0,
-                            players: [],
+                    if(!winner.length) {
+                        say(`Currently no jackpot entries`, messagesRef)
+                    } else {
+                        say(`WINNER OF THE $${doc.data().value} JACKPOT IS!...`, messagesRef)
+                        winner.get().then(doc => {
+                            say(`${doc.data().username}!!!!`, messagesRef)
+                        }).then(r => {
+                            jackpot.set({
+                                value: 0,
+                                players: [],
+                            })
                         })
-                    })
+                    }
                 })
             } else if (str[0] === "!jackpot") {
                 jackpot.get().then(doc => {

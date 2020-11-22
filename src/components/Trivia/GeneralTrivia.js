@@ -41,11 +41,12 @@ export default class GeneralTrivia extends Component {
         this.setState({questionIndex: this.state.questionIndex + 1})
       }
     
-      correct = () => {
+      correct = (e) => {
         this.setState({
             questionIndex: this.state.questionIndex + 1,
             correct: this.state.correct + 1
         })
+        console.log(e.target.value)
       }
 
       claimCoins = () => {
@@ -62,6 +63,7 @@ export default class GeneralTrivia extends Component {
 
     render() {
         const { error, isLoaded, items, questionIndex, correct, visible } = this.state;
+        // let correctButton = <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
         if(error) {
             return <div>Error: {error}</div>
         } else if(!isLoaded) {
