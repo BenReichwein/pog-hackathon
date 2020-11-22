@@ -20,7 +20,7 @@ export function GamblingBot(text, collection, uid) {
             break;
 
         case '!cash':
-            let reward = Math.floor(Math.random() * 200) + 50;
+            let reward = Math.floor(Math.random() * 1000) + 500;
             users.update({
                 balance: firebase.firestore.FieldValue.increment(reward)
             }).then(
@@ -84,7 +84,7 @@ export function GamblingBot(text, collection, uid) {
                     winner.update({
                         balance: firebase.firestore.FieldValue.increment(doc.data().value)
                     })
-                    if(!winner.length) {
+                    if(!random) {
                         say(`Currently no jackpot entries`, messagesRef)
                     } else {
                         say(`WINNER OF THE $${doc.data().value} JACKPOT IS!...`, messagesRef)

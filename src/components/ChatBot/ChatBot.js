@@ -24,6 +24,6 @@ function say(text, messagesRef) {
         text: text,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         photoURL: 'https://www.clipartmax.com/png/middle/209-2095497_marketing-web-design-information-icon-icon-speaker.png',
-        from: "📌 Info-bimbo️",
+        from: "📌 Info",
     })
 }
