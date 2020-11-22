@@ -53,7 +53,7 @@ export default class GeneralTrivia extends Component {
         return users.get().then(doc => {
           users.update({
             balance: doc.data().balance + this.state.correct * 10
-          }).then(r => {
+          }).then(ianIsCool => {
             this.setState({visible: true})
           })
         })
@@ -71,18 +71,20 @@ export default class GeneralTrivia extends Component {
                     <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                     <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
                     <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
-                    <h1>You earned {correct * 10} coins</h1>
+                    <h2>You earned {correct * 10} coins</h2>
                 </div>
             )
         } else {
             return(
                 <div>
                     <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
-                    <ul>
-                        <h3>{atob(items[questionIndex].question)}</h3>
-                        <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
-                        <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
-                    </ul>
+                    <div className='trivia-card'>
+                      <ul>
+                          <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
+                          <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
+                          <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
+                      </ul>
+                    </div>
                 </div>
             ) 
         }

@@ -33,42 +33,12 @@ class ChatRooms extends Component {
                     <br/>
                 </div>
                 <button onClick={()=> window.location.href='/generalchat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>General</h2>
+                    <h2 style={{marginLeft: '20px'}}>General Chat</h2>
                     <p style={{marginLeft: '40px'}}>Talk with the community about working out in general</p>
                     <br/>
                     <p style={{marginLeft: '40px'}}>Click here to join</p>
                 </button>
-                <button onClick={()=> window.location.href='/upperbodychat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>Upper-Body</h2>
-                    <p style={{marginLeft: '40px'}}>Chat about upper-body workouts with the community</p>
-                    <br/>
-                    <p style={{marginLeft: '40px'}}>Click here to join</p>
-                </button>
-                <button onClick={()=> window.location.href='/lowerbodychat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>Lower-Body</h2>
-                    <p style={{marginLeft: '40px'}}>Babble with the community about lower-body workouts</p>
-                    <br/>
-                    <p style={{marginLeft: '40px'}}>Click here to join</p>
-                </button>
-                <button onClick={()=> window.location.href='/bodybuildingchat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>Body Building</h2>
-                    <p style={{marginLeft: '40px'}}>"Lift" your spirit with the body building community</p>
-                    <br/>
-                    <p style={{marginLeft: '40px'}}>Click here to join</p>
-                </button>
-                <button onClick={()=> window.location.href='/weightlosschat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>Weight Loss</h2>
-                    <p style={{marginLeft: '40px'}}>Chit-chat with the weight loss community</p>
-                    <br/>
-                    <p style={{marginLeft: '40px'}}>Click here to join</p>
-                </button>
-                <button onClick={()=> window.location.href='/nutritionchat'} className={'chatroom-button'}>
-                    <h2 style={{marginLeft: '20px'}}>Nutrition</h2>
-                    <p style={{marginLeft: '40px'}}>Grab a snack with the nutrition community</p>
-                    <br/>
-                    <p style={{marginLeft: '40px'}}>Click here to join</p>
-                </button>
-                <button onClick={()=> window.location.href='/trivia'} className={'chatroom-button'}>
+                <button onClick={()=> window.location.href='/trivia'} className={'trivia-button'}>
                     <h2 style={{marginLeft: '20px'}}>Play Trivia</h2>
                     <p style={{marginLeft: '40px'}}>Play some trivia to earn coins and use them in the chat rooms</p>
                     <br/>
