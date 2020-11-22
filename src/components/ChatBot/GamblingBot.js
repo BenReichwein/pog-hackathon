@@ -104,6 +104,31 @@ export function GamblingBot(text, collection, uid) {
                     say(`Buy tickets to have a chance at winning all the $$$! Buy tickets by doing !ticket [amount of tickets] -|- $1,000 per ticket -|- Jackpot Value: $${doc.data().value}`, messagesRef)
                 })
             }
+            const jackpotTimer = () => {
+                setInterval(() => {
+                    jackpot.get().then(doc => {
+                        let random = doc.data().players[Math.floor(Math.random() * doc.data().players.length)];
+                        let winner = db.collection("users").doc(`${random}`);
+                        winner.update({
+                            balance: firebase.firestore.FieldValue.increment(doc.data().value)
+                        })
+                        if(!random) {
+                            say(`Currently no jackpot entries`, messagesRef)
+                        } else {
+                            say(`WINNER OF THE $${doc.data().value} JACKPOT IS!...`, messagesRef)
+                            winner.get().then(doc => {
+                                say(`${doc.data().username}!!!!`, messagesRef)
+                            }).then(r => {
+                                jackpot.set({
+                                    value: 0,
+                                    players: [],
+                                })
+                            })
+                        }
+                    })
+                }, 3600000)
+            }
+            jackpotTimer()
             break;
     }
 }
