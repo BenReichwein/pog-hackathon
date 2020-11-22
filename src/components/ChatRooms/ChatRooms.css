@@ -202,6 +202,33 @@ main::-webkit-scrollbar-thumb {
     margin: 5px 5px;
 }
 
+.gamble-modal {
+    display: flex; /* Hidden by default */
+    float: right;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+    text-align: center;
+}
+
+.gamble-modal-content {
+    background: linear-gradient(90deg, rgb(255, 110, 20) 0%, rgba(255, 102, 70 ,1) 100%);
+    color: whitesmoke;
+    margin: 5% auto 15% auto;
+    width: 30%;
+    height: 30%;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    animation: slideUp 0.7s;
+}
+
 @media screen and (max-width: 512px) {
     .chat-category {
         width: 50%;
@@ -219,5 +246,16 @@ main::-webkit-scrollbar-thumb {
 @media screen and (min-width: 1400px) {
     .chatroom-button {
         width: 850px;
+    }
+}
+
+/* Animations */
+
+@keyframes slideUp {
+    0% {
+        margin: 100% auto 15% auto;
+    }
+    100% {
+        margin: 5% auto 15% auto;
     }
 }

@@ -117,7 +117,7 @@ class Login extends Component {
                     <center><h1>POG-HACKATHON 2020</h1></center>
                     <center><h2>Chat rooms by Ben and Ian</h2></center>
                     <br/><br/>
-                    <button className={"Oauth-login"} onClick={this.signInWithGoogle}><i className="fab fa-google"/> - Login in with Google</button>
+                    <button className={"Oauth-login"} onClick={this.signInWithGoogle}><i className="fab fa-google"/> - Login with Google</button>
                 </div>
                 <br/><br/>
                 <form onSubmit={this.handleSubmit}>
