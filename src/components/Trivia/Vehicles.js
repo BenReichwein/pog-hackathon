@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {db} from "../Firebase/Firebase";
 import firebase from "firebase";
-export default class GeneralTrivia extends Component {
+export default class Vehicles extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +15,7 @@ export default class GeneralTrivia extends Component {
       }
     
       componentWillMount() {
-        fetch("https://opentdb.com/api.php?amount=10&type=boolean&encode=base64")
+        fetch("https://opentdb.com/api.php?amount=10&category=28&type=boolean&encode=base64")
           .then(res => res.json())
           .then(
             (result) => {
@@ -71,15 +71,15 @@ export default class GeneralTrivia extends Component {
                     <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                     <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
                     <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
-                    <h2>You earned {correct * 10} coins</h2>
+                    <h1>You earned {correct * 10} coins</h1>
                 </div>
             )
         } else {
             return(
                 <div>
-                  <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
+                    <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                     <ul>
-                        <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
+                        <h3>{atob(items[questionIndex].question)}</h3>
                         <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
                         <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
                     </ul>

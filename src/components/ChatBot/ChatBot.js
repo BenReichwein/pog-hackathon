@@ -12,6 +12,10 @@ export function ChatBot(text, collection, uid) {
         case '!info':
             say(`This program is made by Ian and Ben`, messagesRef)
             break;
+
+        case '!trivia':
+            say(`Head over to trivia to play some games and earn some coins`, messagesRef)
+            break;
     }
 }
 

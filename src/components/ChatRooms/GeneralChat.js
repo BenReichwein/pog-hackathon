@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Message, SignOut, StatusIn} from '../Firebase/Firebase'
-import './ChatRooms.css'
 
 class GeneralChat extends Component {
     constructor(props) {
