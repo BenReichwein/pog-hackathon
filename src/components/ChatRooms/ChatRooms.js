@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusIn } from '../Firebase/Firebase'
+import { StatusIn, SignOut } from '../Firebase/Firebase'
 import './ChatRooms.css'
 
 class ChatRooms extends Component {
@@ -11,6 +11,7 @@ class ChatRooms extends Component {
     render() {
         return (
             <div>
+                <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
                 <br />
                 <div className={"spotlight"}>
                     <h4 className={"spotlight-title"}>
@@ -18,11 +19,11 @@ class ChatRooms extends Component {
                     </h4>
                     <br/>
                     <div className={"postdesc"}>
-                        • A place to ask workout related questions<br/>
-                        • Talk about good workout techniques and learn new things<br/>
+                        • A place to talk with your community to discuss trivia<br/>
+                        • Play one another with coins earned through trivia games<br/>
                     </div>
                     <h4 className={"spotlight-title"}>
-                        RULES
+                        RULES:
                     </h4>
                     <div className={"postdesc"}>
                         • Be nice and respectful<br/>
@@ -34,7 +35,7 @@ class ChatRooms extends Component {
                 </div>
                 <button onClick={()=> window.location.href='/generalchat'} className={'chatroom-button'}>
                     <h2 style={{marginLeft: '20px'}}>General Chat</h2>
-                    <p style={{marginLeft: '40px'}}>Talk with the community about working out in general</p>
+                    <p style={{marginLeft: '40px'}}>Talk with the community about trivia and use your coins to play some games with one another!</p>
                     <br/>
                     <p style={{marginLeft: '40px'}}>Click here to join</p>
                 </button>

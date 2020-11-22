@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {db} from "../Firebase/Firebase";
+import {db, SignOut} from "../Firebase/Firebase";
 import firebase from "firebase";
 export default class Sports extends Component {
     constructor(props) {
@@ -69,10 +69,11 @@ export default class Sports extends Component {
             return (
               <div className='trivia-container'>
               <div className='trivia-child'>
-                    <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
-                    <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
-                    <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
-                    <h2>You earned {correct * 10} coins</h2>
+                <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
+                <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
+                <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
+                <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
+                <h2>You earned {correct * 10} coins</h2>
               </div>
             </div>
             )
@@ -82,9 +83,10 @@ export default class Sports extends Component {
               <div className='trivia-child'>
                 <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                   <ul>
-                      <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
-                      <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
-                      <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
+                    <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
+                    <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
+                    <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
+                    <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
                   </ul>
                 </div>
             </div>

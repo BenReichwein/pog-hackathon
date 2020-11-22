@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import {SignOut} from '../Firebase/Firebase'
 import './Trivia.css'
 export default class Trivia extends Component {
     render() {
         return (
             <div>
+                <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
+
                 <br />
                 <button onClick={()=> window.location.href="/"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                 <h1 className={"spotlight-title"}>

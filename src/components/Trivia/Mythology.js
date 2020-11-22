@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {db} from "../Firebase/Firebase";
+import {db, SignOut} from "../Firebase/Firebase";
 import firebase from "firebase";
 export default class Mythology extends Component {
     constructor(props) {
@@ -69,10 +69,11 @@ export default class Mythology extends Component {
             return (
               <div className='trivia-container'>
               <div className='trivia-child'>
-                    <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
-                    <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
-                    <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
-                    <h2>You earned {correct * 10} coins</h2>
+                <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
+                <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
+                <button onClick={() => window.location.reload()}><h1>Play Again</h1></button>
+                <button className={visible ? 'hide' : 'trivia-claim'} onClick={this.claimCoins}>Claim Coins</button>
+                <h2>You earned {correct * 10} coins</h2>
               </div>
             </div>
             )
@@ -80,6 +81,7 @@ export default class Mythology extends Component {
             return(
               <div className='trivia-container'>
               <div className='trivia-child'>
+                <button onClick={()=> SignOut()} className={"chat-signout"}> Logout <i className="fas fa-sign-out-alt"/></button>
                 <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
                   <ul>
                       <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
