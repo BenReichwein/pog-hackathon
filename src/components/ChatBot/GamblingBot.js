@@ -10,7 +10,7 @@ export function GamblingBot(text, collection, uid) {
     // eslint-disable-next-line default-case
     switch (text) {
         case '!gamble':
-            say("Gambling Commands: !bal,!slot, !cash", messagesRef)
+            say("Gambling Commands: !bal, !cash, !slot, !ticket, !jackpot, !jackpotroll", messagesRef)
             break;
 
         case '!bal' || '!balance':
