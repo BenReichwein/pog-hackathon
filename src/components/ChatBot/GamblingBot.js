@@ -32,23 +32,27 @@ export function GamblingBot(text, collection, uid) {
             // Slot Machine
             let str = text.split(" ")
             if (str[0] === "!slot" && str[1] > 0) {
-                let reward = str[1] * 3
-                let chance = Math.floor(Math.random() * 2);
-                if (chance === 1) {
-                    users.update({
-                        balance: firebase.firestore.FieldValue.increment(reward)
-                    }).then(
-                        say(`SLOT MACHINE: 🍒 | 🍒 | 🍒 : WINNER! - Prize: ${reward}`, messagesRef)
-                    )
-                } else {
-                    users.get().then(doc => {
-                        users.update({
-                            balance: firebase.firestore.FieldValue.increment(-str[1])
-                        }).then(
-                            say(`SLOT MACHINE: 🍇 | 🍒 | 🍌 : LOSER :/ - Play again`, messagesRef)
-                        )
-                    })
-                }
+                users.get().then(doc => {
+                    if (doc.data().balance > 0) {
+                        let reward = str[1] * 3
+                        let chance = Math.floor(Math.random() * 2);
+                        if (chance === 1) {
+                            users.update({
+                                balance: firebase.firestore.FieldValue.increment(reward)
+                            }).then(
+                                say(`SLOT MACHINE: 🍒 | 🍒 | 🍒 : WINNER! - Prize: ${reward}`, messagesRef)
+                            )
+                        } else {
+                            users.update({
+                                balance: firebase.firestore.FieldValue.increment(-str[1])
+                            }).then(
+                                say(`SLOT MACHINE: 🍇 | 🍒 | 🍌 : LOSER :/ - Play again`, messagesRef)
+                            )
+                        }
+                    } else {
+                        say(`Insufficient Funds - Balance: $${doc.data().balance}`, messagesRef)
+                    }
+                })
             } else if (str[0] === "!slot") {
                 say(`[ERROR] - Proper use !slot [amount]`, messagesRef)
             }
