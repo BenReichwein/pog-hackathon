@@ -77,14 +77,12 @@ export default class GeneralTrivia extends Component {
         } else {
             return(
                 <div>
-                    <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
-                    <div className='trivia-card'>
-                      <ul>
-                          <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
-                          <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
-                          <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
-                      </ul>
-                    </div>
+                  <button onClick={()=> window.location.href="/trivia"} className={"chat-back"}><i className="fas fa-step-backward"/> Back</button>
+                    <ul>
+                        <h3 className='trivia-question'>{atob(items[questionIndex].question)}</h3>
+                        <button onClick={this.correct}>{atob(items[questionIndex].correct_answer)}</button>
+                        <button onClick={this.counter}>{atob(items[questionIndex].incorrect_answers)}</button>
+                    </ul>
                 </div>
             ) 
         }

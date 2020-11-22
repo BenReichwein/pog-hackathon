@@ -52,7 +52,7 @@ main::-webkit-scrollbar-thumb {
     line-height: 1.5;
     width: 100%;
     font-size: 1.5rem;
-    background: linear-gradient(90deg, rgb(255, 171, 0) 0%, rgba(254, 140, 20 ,1) 100%);
+    background: linear-gradient(to right, #517fa4 0%, #243949 51%, #517fa4 100%);
     color: white;
     outline: none;
     border-radius: 7px;
@@ -129,13 +129,18 @@ main::-webkit-scrollbar-thumb {
 }
 
 .chatroom-button {
-    background: linear-gradient(90deg, rgb(254, 120, 20) 0%, rgba(254, 102, 90 ,1) 100%);
+    background-image: linear-gradient(to right, #517fa4 0%, #243949 51%, #517fa4 100%)
+}
+.chatroom-button {
     color: whitesmoke;
+    padding: 8px 20px;
     text-align: left;
     margin: 10px auto; /* 5% from the top, 15% from the bottom and centered */
     width: 80%; /* Could be more or less, depending on screen size */
     height: 100%;
-    border-radius: 8px;
+    border-radius: 25px;
+    transition: 0.5s;
+    background-size: 200% auto;
     border-color: transparent;
     box-shadow: 0 4px 8px 0 rgba(0, 0,
     0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -143,15 +148,16 @@ main::-webkit-scrollbar-thumb {
 }
 
 .chatroom-button:hover {
-    padding: 8px 20px;
+    padding: 12px 30px;
     transition: all 0.3s ease-out;
-    background: linear-gradient(90deg, rgb(255, 171, 0) 0%, rgba(254, 120, 50 ,1) 100%);
     color: white;
     transition: 250ms;
+    background-position: right center; /* change the direction of the change here */
+    text-decoration: none;
 }
 
 .chat-category {
-    background: linear-gradient(90deg, rgb(255, 128, 0) 0%, rgba(255, 128, 0 ,1) 100%);
+    background: linear-gradient(to right, #517fa4 0%, #243949 51%, #517fa4 100%);
     color: white;
     padding: 16px;
     width: 65%;
