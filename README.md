@@ -1,4 +1,4 @@
-# Trivia Chat
+# WINNER OF THE POG HACKATHON 22, November, 2020
 
 A place to talk with your commuinty and play games with each other. Play some games and bet against each other. If you find you are low on coins head over to the trivia page and test your skill to see if you can win some coins.
 
